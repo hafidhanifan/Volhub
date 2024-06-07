@@ -25,3 +25,13 @@ Route::post('/admin/add-kategori', [Admin::class, 'addKategoriAction'])->name('a
 Route::get('/admin/edit-kategori/{id}', [Admin::class, 'showEditKategoriPage'])->name('admin.edit-kategori-page');
 Route::put('admin/edit-kategori/{id}', [Admin::class, 'editKategoriAction'])->name('admin.edit-kategori-action');
 Route::delete('admin/delete-kategori/{id}', [Admin::class, 'deleteKategoriAction'])->name('admin.delete-kategori-action');
+
+// Route untuk Kelola Data Volunteer
+Route::get('/admin/kegiatan', [Admin::class, 'showKegiatanPage'])->name('admin.kegiatan');
+Route::get('/admin/add-kegiatan', [Admin::class, 'showAddKegiatanPage'])->name('admin.add-kegiatan-page');
+Route::post('/admin/add-kegiatan/benefit', [Admin::class, 'addBenefitAction'])->name('admin.add-benefit-action');
+Route::post('/admin/add-kegiatan/kriteria', [Admin::class, 'addKriteriaAction'])->name('admin.add-kriteria-action');
+
+Route::post('/admin/add-kegiatan', [Admin::class, 'addKegiatanAction'])->name('admin.add-kegiatan-action');
+
+

@@ -51,7 +51,7 @@
                       @foreach($kategori as $kategori) 
                       <tr>
                         <td>
-                          <p>{{ $kategori->id}}</p>
+                          <p>{{ $kategori->id_kategori}}</p>
                         </td>
                         <td>
                           <p>{{ $kategori->nama_kategori }}</p>
@@ -59,10 +59,10 @@
                         <td>
                           <div class="action">
                             <div class="d-flex action-kategori">
-                              <a href="{{ route('admin.edit-kategori-page', ['id' => $kategori->id]) }}" id="editKategori">
+                              <a href="{{ route('admin.edit-kategori-page', ['id' => $kategori->id_kategori]) }}" id="editKategori">
                                 <i class="lni lni-pencil text-primary"></i>
                               </a>
-                              <form action="{{ route('admin.delete-kategori-action', ['id' => $kategori->id]) }}" method="POST" style="display:inline;">
+                              <form action="{{ route('admin.delete-kategori-action', ['id' => $kategori->id_kategori]) }}" method="POST" style="display:inline;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" onclick="return confirm('Apakah Anda yakin ingin menghapus kategori ini?')" style="background:none; border:none; padding:0; cursor:pointer;">

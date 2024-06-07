@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Benefits;
+use App\Models\Kriterias;
 use App\Models\Categories;
+use Illuminate\Http\Request;
 
 class Admin extends Controller
 {
@@ -12,10 +14,23 @@ class Admin extends Controller
         $kategori = Categories::all();
         return view('admin.layout.kategori', compact('kategori'));
     }
+    
+    public function showKegiatanPage()
+    {
+        return view('admin.layout.kegiatan');
+    }   
 
     public function showAddKategoriPage()
     {
         return view('admin.layout.add-kategori');
+    }
+
+    public function showAddKegiatanPage()
+    {
+        $kategori = Categories::all();
+        $benefit = Benefits::all();
+        $kriteria = Kriterias::all();
+        return view('admin.layout.add-kegiatan', compact('kategori','benefit', 'kriteria'));
     }
 
     public function showEditKategoriPage($id)
@@ -52,5 +67,31 @@ class Admin extends Controller
         } else {
             return redirect()->route('admin.kategori')->with('error', 'Kategori tidak ditemukan.');
         }
+    }
+
+    public function addBenefitAction(Request $request)
+    {
+        $benefit = new Benefits;
+        $benefit->benefit = $request->benefit;
+        $benefit->save();
+
+        return redirect('/admin/add-kegiatan');
+    }
+
+    public function addKriteriaAction(Request $request)
+    {
+        $kriteria = new Kriterias;
+        $kriteria->kriteria = $request->kriteria;
+        $kriteria->save();
+
+        return redirect('/admin/add-kegiatan');
+    }
+
+    public function addKegiatanAction(Request $request){
+        $kegiatan = new Kegiatan;
+        $kategori->nama_kategori = $request->kategori;
+        $kategori->save();
+
+        return redirect('/admin/kategori');
     }
 }

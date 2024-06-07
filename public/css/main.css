@@ -6399,3 +6399,46 @@ h6,
 .action-kategori button i {
     font-size: 1.5rem;
 }
+
+.logo-admin {
+    width: 80px;
+}
+
+.edit__list {
+    /* border: green 2px solid; */
+    padding: 20px 0 20px 0;
+}
+
+.edit__list ul {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.edit__list li::marker {
+    color: #f3663f;
+}
+
+.edit__list i {
+    color: red;
+    cursor: pointer;
+}
+
+.edit__item {
+    /* border: green solid 2px; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.edit__list ul li {
+    /* border: blueviolet 2px solid; */
+    /* display: flex; */
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.button-kriteria__add {
+    margin-top: 20px;
+}

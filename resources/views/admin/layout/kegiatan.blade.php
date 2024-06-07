@@ -12,7 +12,7 @@
                   <h2>Project Volunteering</h2>
                 </div>
                 <a
-                  href="volhub-add-kategori.html"
+                  href="{{ route('admin.add-kegiatan-page') }}"
                   class="main-btn dark-btn btn-hover"
                 >
                   <i class="lni lni-plus mr-5"></i>Tambah Project</a

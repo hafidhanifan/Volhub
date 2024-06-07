@@ -1,11 +1,11 @@
 @include('admin.layout.templates.header')
 @include('admin.layout.templates.sidebar')
 @include('admin.layout.templates.navbar')  
-      <!-- ========== section start ========== -->
-      <section class="section">
-        <div class="container-fluid">
-          <!-- ========== title-wrapper start ========== -->
-          <div class="title-wrapper pt-30">
+<!-- ========== section start ========== -->
+  <section class="section">
+    <div class="container-fluid">
+      <!-- ========== title-wrapper start ========== -->
+      <div class="title-wrapper pt-30">
             <div class="row align-items-center">
               <div class="col-md-6">
                 <div class="title">
@@ -34,8 +34,11 @@
           <!-- ========== title-wrapper end ========== -->
           <!-- ========== form-elements-wrapper start ========== -->
           <div class="form-elements-wrapper">
+            
             <div class="row">
               <div class="col-lg-6">
+                <form action="">
+                  @csrf
                 <!-- input style start -->
                 <div class="card-style mb-30">
                   <div class="input-style-1">
@@ -47,9 +50,11 @@
                     <label>Kategori</label>
                     <div class="select-position">
                       <select>
-                        <option value="">Pilih Kategori</option>
-                        <option value="">Pendidikan</option>
-                        <option value="">Kesehatan</option>
+                      <?php $no = 1 ?>
+                      <option value="">Pilih Kategori</option>
+                      @foreach($kategori as $kategori) 
+                        <option value="">{{ $kategori->nama_kategori }}</option>
+                      @endforeach
                       </select>
                     </div>
                   </div>
@@ -103,80 +108,78 @@
                     <!-- end textarea -->
                 </div>
                 <!-- ======= textarea style end ======= -->
-
-
-                
+                <button type="submit" href="#0" class="main-btn-kategori primary-btn btn-hover right-align">Tambah Kegiatan</button>
+              </form>
               </div>
               <!-- end col -->
+
+              
               <div class="col-lg-6">
-
-
-                <!-- input style start -->
-                <div class="card-style mb-30">
-                    <div class="input-style-1">
-                      <label>Kriteria</label>
-                      <input type="text" />
+                 <!-- input style start -->
+                 <div class="card-style mb-30">
+                  <form action="{{ route('admin.add-kriteria-action') }}" method="POST">
+                    @csrf
+                  <div class="input-style-1">
+                    <label>Kriteria</label>
+                      <div class="edit__list">
+                        <ul>
+                          <?php $no = 1 ?>
+                          @foreach($kriteria as $kriteria) 
+                            <div class="edit__item">
+                                <li>{{ $kriteria->kriteria }}</li>
+                                <i class="fa-solid fa-trash"></i>
+                            </div>
+                          @endforeach
+                        </ul>  
                     </div>
-                    <!-- end input -->
-                    <div class="input-style-1">
-                      <input type="text"/>
+                    <input type="text" name="kriteria"/>
+                    <div class="button-kriteria__add">
+                      <button type="submit" class="main-btn primary-btn btn-hover">Tambah Kriteria</button>
                     </div>
-                    <!-- end input -->
-                    <div class="input-style-1">
-                      <input type="text"/>
-                    </div>
-                    <!-- end input -->
-                    <div class="input-style-1">
-                      <input type="text"/>
-                    </div>
-                    <!-- end input -->
-                    <div class="input-style-1">
-                      <input type="text"/>
-                    </div>
-                    <!-- end input -->  
-                </div>
+                  </div>
+                </form>
+                  <!-- end input -->
+              </div>
                 <!-- end card -->
                 <!-- ======= input style end ======= -->
 
-                <!-- input style start -->
-                <div class="card-style mb-30">
-                    <div class="input-style-1">
-                      <label>Benefit</label>
-                      <input type="text"/>
-                    </div>
-                    <!-- end input -->
-                    <div class="input-style-1">
-                      <input type="text"/>
-                    </div>
-                    <!-- end input -->
-                    <div class="input-style-1">
-                      <input type="text"/>
-                    </div>
-                    <!-- end input -->
-                    <div class="input-style-1">
-                      <input type="text"/>
-                    </div>
-                    <!-- end input -->
-                    <div class="input-style-1">
-                      <input type="text"/>
-                    </div>
-                    <!-- end input -->  
+             <!-- input style start -->
+             <div class="card-style mb-30">
+              <div></div>
+              <form action="{{ route('admin.add-benefit-action') }}" method="POST" class="input-style-1">
+                @csrf
+                <label>Benefit</label>
+                  <div class="edit__list">
+                    <ul>
+                      <?php $no = 1 ?>
+                      @foreach($benefit as $benefit) 
+                        <div class="edit__item">
+                            <li>{{ $benefit->benefit }}</li>
+                            <i class="fa-solid fa-trash"></i>
+                        </div>
+                      @endforeach
+                    </ul>  
                 </div>
-                <!-- end card -->
-                <!-- ======= input style end ======= -->
+                <input type="text" name="benefit"/>
+                <div class="button-kriteria__add">
+                  <button type="submit" class="main-btn primary-btn btn-hover">Tambah Benefit</button>
+                </div>
+              </form>
+              <!-- end input -->
+            </div>
+          <!-- end card -->
+          <!-- ======= input style end ======= -->
 
               </div>
               <!-- end col -->
             </div>
             <!-- end row -->
+            
+
           </div>
           <!-- ========== form-elements-wrapper end ========== -->
-
-
-
-
         </div>
         <!-- end container -->
-      </section>
+  </section>
       <!-- ========== section end ========== -->
-      @include('admin.layout.templates.footer')
+@include('admin.layout.templates.footer')

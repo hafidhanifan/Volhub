@@ -22,7 +22,7 @@
             <div class="row">
               <div class="col-lg-6">
                 <!-- input style start -->
-                <form action="{{ route('admin.edit-kategori-action', ['id' => $kategori->id]) }}" method="POST">
+                <form action="{{ route('admin.edit-kategori-action', ['id' => $kategori->id_kategori]) }}" method="POST">
                     @csrf
                     @method('PUT')
                   <div class="card-style mb-30 d-flex flex-column">

@@ -8,7 +8,7 @@
  <aside class="sidebar-nav-wrapper">
       <div class="navbar-logo">
         <a href="index.html">
-          <img src="assets/images/logo/logo.svg" alt="logo" />
+          <img class="logo-admin" src="{{ asset('/images/volhub-small-logo.png') }}" alt="logo" />
         </a>
       </div>
       <nav class="sidebar-nav">
@@ -79,7 +79,7 @@
                 <a href="{{ route('admin.kategori') }}"> Kategori </a>
               </li>
               <li>
-                <a href="{{ url('/kegiatan') }}"> Project </a>
+                <a href="{{ route('admin.kegiatan') }}"> Project </a>
               </li>
               <li>
                 <a href="{{ url('/pendaftar') }}"> Pendaftar </a>
